@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Mission Financial Planning AI - System Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', Arial, sans-serif;
+            background: #ffffff;
+            color: #001454;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: 10px;
+            color: #001454;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #001454;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .problem-statement {
+            background: #e6f0ff;
+            color: #001454;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .architecture-container {
+            background: #f0f4ff;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .layer {
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+        
+        .layer:nth-child(1) { animation-delay: 0.1s; }
+        .layer:nth-child(2) { animation-delay: 0.2s; }
+        .layer:nth-child(3) { animation-delay: 0.3s; }
+        .layer:nth-child(4) { animation-delay: 0.4s; }
+        .layer:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .layer-header {
+            background: #cce0ff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 26px;
+            font-weight: 600;
+        }
+        
+        .layer-badge {
+            background: #001454;
+            color: #ffffff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .component {
+            background: #d9e6ff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #a3c2ff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .component:hover {
+            background: #cce0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 20, 84, 0.3);
+        }
+        
+        .component-icon {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .component-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .component-desc {
+            font-size: 1rem;
+            color: #001454;
+            line-height: 1.4;
+        }
+        
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .agent-card {
+            background: #e6f0ff;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #a3c2ff;
+            transition: all 0.3s ease;
+        }
+        
+        .agent-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 20, 84, 0.3);
+        }
+        
+        .agent-icon {
+            width: 50px;
+            height: 50px;
+            background: #001454;
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .agent-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .agent-functions {
+            list-style: none;
+            font-size: 14px;
+            color: #001454;
+        }
+        
+        .agent-functions li {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .agent-functions li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #001454;
+        }
+        
+        .flow-diagram {
+            background: #f0f4ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .flow-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #001454;
+        }
+        
+        .flow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .flow-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .flow-step-circle {
+            width: 80px;
+            height: 80px;
+            background: #001454;
+            color: #ffffff;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: help;
+        }
+        
+        .flow-step-circle:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #001454;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            z-index: 10;
+        }
+        
+        .flow-step-text {
+            font-size: 16px;
+            color: #001454;
+        }
+        
+        .flow-arrow {
+            position: absolute;
+            top: 40px;
+            right: -30px;
+            font-size: 2rem;
+            color: #001454;
+        }
+        
+        .metrics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .metric-card {
+            background: #e6f0ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #a3c2ff;
+        }
+        
+        .metric-value {
+            font-size: 40px;
+            font-weight: bold;
+            color: #001454;
+        }
+        
+        .metric-label {
+            font-size: 16px;
+            color: #001454;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .components, .agent-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Space Mission Financial Planning AI</h1>
+        <p class="subtitle">Agentic Architecture & System Design</p>
+
+        <div class="problem-statement">
+            Planning a space mission involves complex decisions, high costs, and significant risks. 
+            Our AI-driven system enables multi-agent collaboration to estimate costs, optimize budgets, and assess risks 
+            in real-time for efficient financial planning.
+        </div>
+        
+        <div class="architecture-container">
+            <!-- Layer 5 to Layer 1 same as before, no need to repeat for brevity -->
+            <!-- Example: Layer 4: Specialized AI Agents -->
+            <div class="layer">
+                <div class="layer-header">
+                    <span class="layer-title">Layer 4: Specialized AI Agents</span>
+                    <span class="layer-badge">Intelligence Layer</span>
+                </div>
+                <div class="agent-grid">
+                    <div class="agent-card">
+                        <div class="agent-icon">💰</div>
+                        <div class="agent-name">Cost Estimation Agent (Director AI)</div>
+                        <ul class="agent-functions">
+                            <li>Parametric cost modeling</li>
+                            <li>WBS analysis</li>
+                            <li>Confidence intervals</li>
+                        </ul>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-icon">⚠️</div>
+                        <div class="agent-name">Risk Assessment Agent</div>
+                        <ul class="agent-functions">
+                            <li>Risk identification</li>
+                            <li>Impact quantification</li>
+                            <li>Mitigation strategies</li>
+                        </ul>
+                    </div>
+                    <div class="agent-card">
+                        <div class="agent-icon">🎯</div>
+                        <div class="agent-name">Budget Optimization Agent</div>
+                        <ul class="agent-functions">
+                            <li>Resource allocation</li>
+                            <li>Trade-off analysis</li>
+                            <li>Cost reduction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Process Flow -->
+        <div class="flow-diagram">
+            <h2 class="flow-title">Intelligent Planning Process Flow</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-circle" data-tooltip="Input mission requirements: type, duration, payload, TRL, etc.">1</div>
+                    <div class="flow-step-text">Mission Requirements Input</div>
+                    <div class="flow-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-circle" data-tooltip="Cost, Risk, Budget agents analyze data collaboratively">2</div>
+                    <div class="flow-step-text">Multi-Agent Analysis</div>
+                    <div class="flow-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-circle" data-tooltip="Director AI coordinates planning & optimization">3</div>
+                    <div class="flow-step-text">Optimization & Planning</div>
+                    <div class="flow-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step-circle" data-tooltip="Evaluate scenarios & simulate outcomes">4</div>
+                    <div class="flow-step-text">Scenario Evaluation</div>
+                    <div class="flow-arrow">→</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-step
