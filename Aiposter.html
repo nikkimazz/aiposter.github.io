@@ -15,7 +15,7 @@
             min-height: 100vh;
             padding: 20px;
         }
-        .container { max-width:1400px; margin:0 auto; }
+    .container { max-width:1400px; margin:0 auto; position:relative; }
         h1 { text-align:center; font-size:2.5rem; margin-bottom:10px; background:linear-gradient(45deg, #00d4ff, #7300ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
         .subtitle { text-align:center; color:#a0a0a0; margin-bottom:20px; font-size:1.0rem; }
 
@@ -75,11 +75,21 @@
     .chart-container { margin:18px auto; background: rgba(255,255,255,0.02); padding:12px; border-radius:10px; max-width:900px; }
     .chart-container canvas { width:100% !important; height:260px !important; max-height:360px; }
 
-        @media (max-width:768px){ .components { grid-template-columns:1fr; } .agent-grid { grid-template-columns:1fr; } .flow-arrow { display:none; } }
+    /* ISU mission patch - top-right */
+    .isu-patch { position:absolute; top:12px; right:12px; width:110px; height:auto; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.6); }
+
+        @media (max-width:768px){
+            .components { grid-template-columns:1fr; }
+            .agent-grid { grid-template-columns:1fr; }
+            .flow-arrow { display:none; }
+            .isu-patch { width:72px; top:8px; right:8px; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- ISU mission patch (top-right) -->
+        <img src="ISU-Logo-patch-300px.png" alt="ISU Mission Patch" class="isu-patch" />
         <h1>Space Mission Financial Planning AI</h1>
         <p class="subtitle">Agentic Architecture & System Design</p>
 
