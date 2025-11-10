@@ -43,14 +43,14 @@
             overflow: hidden;
             margin-bottom: 2rem;
             border-radius: 0;
-            /* Space background image with overlay */
+            /* Hero background: Pexels space image with blue-tinted gradient overlay */
             background-image:
-                linear-gradient(135deg, rgba(0, 18, 64, 0.7) 0%, rgba(5, 30, 60, 0.75) 40%, rgba(10, 40, 90, 0.8) 100%),
-                url('https://sounny.github.io/spaceai/pexels-shashank-brahmavar-737732917-18507019.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+                linear-gradient(135deg, rgba(0, 20, 80, 0.87) 0%, rgba(5, 35, 90, 0.85) 40%, rgba(15, 50, 110, 0.83) 100%),
+                url('pexels-shashank-brahmavar-737732917-18507019.jpg');
+            background-size: cover, cover;
+            background-position: center, center;
             background-attachment: scroll;
+            background-blend-mode: multiply;
         }
         
         .hero-content {
@@ -63,9 +63,10 @@
         }
         
         .hero-logo {
-            width: 120px;
+            width: 160px;
             height: auto;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+            margin-bottom: 8px;
         }
         
         .hero-banner::after {
@@ -78,9 +79,27 @@
             background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
         }
         
-        h1 { text-align:center; font-size:2.8rem; margin-bottom:10px; color: var(--white); font-family: var(--heading-font); font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+        h1 { 
+            text-align:center; 
+            font-size:3.2rem; 
+            margin-bottom:16px; 
+            color: var(--white); 
+            font-family: var(--heading-font); 
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding-bottom: 16px;
+            background: linear-gradient(90deg, transparent, rgba(100,200,255,0.9), rgba(255,255,255,0.8), rgba(100,200,255,0.9), transparent) bottom no-repeat;
+            background-size: 100% 3px;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+        }
         .subtitle { text-align:center; color: rgba(255,255,255,0.95); margin-bottom:10px; font-size:1.0rem; }
         .subtitle-line { display:block; font-weight:600; color: rgba(255,255,255,0.95); }
+
+        .hero-title-small { margin-top: 6px; font-size:1.25rem; color: rgba(255,255,255,0.95); font-weight:600; }
+        .hero-desc { margin-top:10px; color: rgba(255,255,255,0.9); font-size:1rem; max-width:820px; margin-left:auto; margin-right:auto; }
+        .hero-event { margin-top:12px; font-size:0.95rem; color: rgba(255,255,255,0.9); font-weight:600; }
 
         /* problem-statement */
         .problem-statement {
@@ -154,8 +173,11 @@
     <div class="hero-banner">
         <div class="hero-content">
             <img src="ISU-Logo-patch-300px.png" alt="ISU Mission Patch" class="hero-logo" />
-            <h1>BUDGIE</h1>
+            <h1>B.U.D.G.I.E</h1>
             <p class="subtitle"><span class="subtitle-line">BUDGET UTILISATION DYNAMIC</span><span class="subtitle-line">GUIDANCE INTELLIGENCE ENGINE</span></p>
+            <h2 class="hero-title-small">SpaceAI: Interactive Poster Session</h2>
+            <p class="hero-desc">Exploring the intersection of artificial intelligence and space across policy, engineering, earth observation, life science, astrophysics and mission planning.</p>
+            <p class="hero-event">Main event: 14 November 2025 • 14:00 – 17:00 CET</p>
         </div>
     </div>
     
