@@ -71,7 +71,9 @@
         .metric-value { font-size:1.4rem; font-weight:700; background: linear-gradient(45deg,#00d4ff,#7300ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
         .metric-label { font-size:0.85rem; color:#c5d8ff; margin-top:6px; }
 
-        .chart-container { margin-top:18px; background: rgba(255,255,255,0.02); padding:12px; border-radius:10px; }
+    /* Constrain charts so they don't become oversized on wide displays */
+    .chart-container { margin:18px auto; background: rgba(255,255,255,0.02); padding:12px; border-radius:10px; max-width:900px; }
+    .chart-container canvas { width:100% !important; height:260px !important; max-height:360px; }
 
         @media (max-width:768px){ .components { grid-template-columns:1fr; } .agent-grid { grid-template-columns:1fr; } .flow-arrow { display:none; } }
     </style>
@@ -207,7 +209,7 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 plugins: {
                     legend: { position: 'bottom', labels: { color: '#dfefff' } }
                 }
@@ -229,7 +231,7 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
+                maintainAspectRatio: true,
                 scales: {
                     x: { ticks: { color: '#dfefff' } },
                     y: { beginAtZero: true, ticks: { color: '#dfefff' } }
