@@ -38,12 +38,17 @@
             align-items: center;
             padding: 3rem 1rem;
             position: relative;
-            background: linear-gradient(135deg, rgba(0, 20, 84, 0.86), rgba(10, 60, 134, 0.78));
             color: var(--white);
             text-align: center;
             overflow: hidden;
             margin-bottom: 2rem;
             border-radius: 0;
+            /* SpaceAI-like layered background: blended gradients with subtle radial accents */
+            background-image:
+                linear-gradient(135deg, rgba(0, 18, 64, 0.92) 0%, rgba(5, 30, 60, 0.9) 40%, rgba(10, 40, 90, 0.85) 100%),
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.02), transparent 8%),
+                radial-gradient(circle at 85% 75%, rgba(255,255,255,0.015), transparent 10%);
+            background-blend-mode: normal, overlay, overlay;
         }
         
         .hero-banner::after {
@@ -58,11 +63,17 @@
         
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            max-width: 980px;
+            padding: 1rem 1.5rem;
         }
         
         h1 { text-align:center; font-size:2.8rem; margin-bottom:10px; color: var(--white); font-family: var(--heading-font); font-weight: 700; }
-        .subtitle { text-align:center; color: rgba(255,255,255,0.9); margin-bottom:20px; font-size:1.1rem; }
+        .subtitle { text-align:center; color: rgba(255,255,255,0.95); margin-bottom:10px; font-size:1.0rem; }
+
+        .hero-title-small { margin-top: 6px; font-size:1.25rem; color: rgba(255,255,255,0.95); font-weight:600; }
+        .hero-desc { margin-top:10px; color: rgba(255,255,255,0.9); font-size:1rem; max-width:820px; margin-left:auto; margin-right:auto; }
+        .hero-event { margin-top:12px; font-size:0.95rem; color: rgba(255,255,255,0.9); font-weight:600; }
 
         /* problem-statement */
         .problem-statement {
@@ -143,15 +154,17 @@
     <canvas id="starfield" aria-hidden="true"></canvas>
     <!-- Hero Banner -->
     <div class="hero-banner">
+        <img src="ISU-Logo-patch-300px.png" alt="ISU Mission Patch" class="isu-patch" />
         <div class="hero-content">
             <h1>BUDGIE</h1>
             <p class="subtitle"><span class="subtitle-line">BUDGET UTILISATION DYNAMIC</span><span class="subtitle-line">GUIDANCE INTELLIGENCE ENGINE</span></p>
+            <h2 class="hero-title-small">SpaceAI: Interactive Poster Session</h2>
+            <p class="hero-desc">Exploring the intersection of artificial intelligence and space across policy, engineering, earth observation, life science, astrophysics and mission planning.</p>
+            <p class="hero-event">Main event: 14 November 2025 • 14:00 – 17:00 CET</p>
         </div>
     </div>
     
     <div class="container">
-        <!-- ISU mission patch (top-right) -->
-        <img src="ISU-Logo-patch-300px.png" alt="ISU Mission Patch" class="isu-patch" />
 
         <div class="problem-statement">
             Planning a space mission involves complex decisions, high costs, and significant risks.
