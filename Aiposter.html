@@ -43,9 +43,9 @@
             overflow: hidden;
             margin-bottom: 2rem;
             border-radius: 0;
-            /* Hero background: Pexels space image with stronger gradient overlay for text legibility */
+            /* Hero background: Pexels space image with strong gradient overlay for text legibility */
             background-image:
-                linear-gradient(135deg, rgba(0, 18, 64, 0.92) 0%, rgba(5, 30, 60, 0.90) 40%, rgba(10, 40, 90, 0.88) 100%),
+                linear-gradient(135deg, rgba(0, 18, 64, 0.87) 0%, rgba(5, 30, 60, 0.85) 40%, rgba(10, 40, 90, 0.83) 100%),
                 url('pexels-shashank-brahmavar-737732917-18507019.jpg');
             background-size: cover, cover;
             background-position: center, center;
@@ -63,9 +63,10 @@
         }
         
         .hero-logo {
-            width: 120px;
+            width: 160px;
             height: auto;
             filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+            margin-bottom: 8px;
         }
         
         .hero-banner::after {
@@ -85,7 +86,26 @@
             padding: 1rem 1.5rem;
         }
         
-        h1 { text-align:center; font-size:2.8rem; margin-bottom:10px; color: var(--white); font-family: var(--heading-font); font-weight: 700; }
+        h1 { 
+            text-align:center; 
+            font-size:3.2rem; 
+            margin-bottom:8px; 
+            color: var(--white); 
+            font-family: var(--heading-font); 
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+            display: inline-block;
+            width: 100%;
+        }
+        .h1-acronym {
+            font-size: 1.15rem;
+            letter-spacing: 0.25em;
+            color: rgba(255,255,255,0.9);
+            font-weight: 400;
+            margin-top: 8px;
+        }
         .subtitle { text-align:center; color: rgba(255,255,255,0.95); margin-bottom:10px; font-size:1.0rem; }
 
         .hero-title-small { margin-top: 6px; font-size:1.25rem; color: rgba(255,255,255,0.95); font-weight:600; }
@@ -173,7 +193,7 @@
     <div class="hero-banner">
         <div class="hero-content">
             <img src="ISU-Logo-patch-300px.png" alt="ISU Mission Patch" class="hero-logo" />
-            <h1>BUDGIE</h1>
+            <h1>BUDGIE<div class="h1-acronym">B.U.D.G.I.E</div></h1>
             <p class="subtitle"><span class="subtitle-line">BUDGET UTILISATION DYNAMIC</span><span class="subtitle-line">GUIDANCE INTELLIGENCE ENGINE</span></p>
         </div>
     </div>
