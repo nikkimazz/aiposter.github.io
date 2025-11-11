@@ -205,7 +205,17 @@
             filter: drop-shadow(0 -2px 3px rgba(0,20,84,0.12));
         }
         .purpose-intro:hover { box-shadow: 0 8px 24px rgba(10,60,134,0.25); transform: translateY(-2px); transition: all 0.35s ease; }
-        .flow-steps { 
+        
+        /* Linear flow for High-Level Purpose */
+        .flow-steps { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+        .flow-step { flex:1; min-width:140px; text-align:center; position:relative; transition: transform 0.3s ease; cursor: pointer; }
+        .flow-step:hover { transform: scale(1.08); }
+        .flow-step:hover .flow-step-circle { background: linear-gradient(135deg, var(--isu-accent), #0d4fb8); box-shadow: 0 8px 20px rgba(10, 60, 134, 0.4); }
+        .flow-step-circle { width:64px; height:64px; background: linear-gradient(135deg, var(--isu-blue), var(--isu-accent)); border-radius:50%; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; font-weight:bold; color: var(--white); box-shadow: var(--card-shadow); transition: all 0.3s ease; }
+        .flow-step-text { font-size:0.95rem; color: var(--text-color); }
+        
+        /* Circular flow for Intelligent Planning Process Flow */
+        .flow-steps-circular { 
             position: relative;
             width: 560px;
             height: 560px;
@@ -213,13 +223,16 @@
             border-radius: 50%;
             padding: 0;
         }
-        .flow-step { 
+        .flow-steps-circular .flow-step { 
             position:absolute; 
             width:140px; 
             text-align:center; 
-            transform:translate(-50%, -50%); 
+            transform:translate(-50%, -50%);
+            transition: none;
+            cursor: default;
         }
-        .flow-step-circle { 
+        .flow-steps-circular .flow-step:hover { transform: translate(-50%, -50%); }
+        .flow-steps-circular .flow-step-circle { 
             width:68px; height:68px; 
             background: linear-gradient(135deg, var(--isu-blue), var(--isu-accent)); 
             border-radius:50%; 
@@ -228,7 +241,7 @@
             font-size:1.4rem; font-weight:bold; color:#fff; 
             box-shadow: 0 6px 14px rgba(0,20,84,0.25); 
         }
-        .flow-step-text { font-size:0.85rem; color: var(--text-color); font-weight:600; }
+        .flow-steps-circular .flow-step-text { font-size:0.85rem; color: var(--text-color); font-weight:600; }
         /* Positions around circle (center at 50%,50%) */
         .flow-step[data-pos="1"] { top:8%; left:50%; }
         .flow-step[data-pos="2"] { top:25%; left:85%; }
@@ -330,7 +343,7 @@
         <!-- Process Flow (moved up under High-Level Purpose) -->
         <div class="flow-diagram">
             <h2 class="flow-title">Intelligent Planning Process Flow</h2>
-            <div class="flow-steps">
+            <div class="flow-steps-circular">
                 <div class="flow-step" data-pos="1"><div class="flow-step-circle">1</div><div class="flow-step-text">Mission Requirements<br/>Input</div></div>
                 <div class="flow-step" data-pos="2"><div class="flow-step-circle">2</div><div class="flow-step-text">Multi-Agent<br/>Analysis</div></div>
                 <div class="flow-step" data-pos="3"><div class="flow-step-circle">3</div><div class="flow-step-text">Optimization &<br/>Planning</div></div>
