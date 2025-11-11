@@ -145,6 +145,32 @@
 
         .flow-diagram { background: var(--white); border-radius:14px; padding:20px; margin-top:28px; box-shadow: var(--card-shadow); }
         .flow-title { text-align:center; font-size:1.2rem; margin-bottom:16px; color: var(--isu-blue); }
+        .purpose-intro { 
+            display:inline-block;
+            background: linear-gradient(135deg, #f0f6ff 0%, #ffffff 40%, #f0f6ff 100%);
+            padding:14px 22px;
+            border-radius: 999px;
+            font-size:0.95rem;
+            color: var(--text-color);
+            box-shadow: 0 6px 18px rgba(0,20,84,0.12);
+            border:1px solid rgba(0,20,84,0.18);
+            position: relative;
+            margin: 0 auto 20px;
+            max-width:900px;
+        }
+        .purpose-intro::after {
+            content:'';
+            position:absolute;
+            left:50%;
+            bottom:-10px;
+            transform:translateX(-50%);
+            width:0; height:0;
+            border-left:10px solid transparent;
+            border-right:10px solid transparent;
+            border-top:10px solid rgba(240,246,255,1);
+            filter: drop-shadow(0 -2px 3px rgba(0,20,84,0.12));
+        }
+        .purpose-intro:hover { box-shadow: 0 8px 24px rgba(10,60,134,0.25); transform: translateY(-2px); transition: all 0.35s ease; }
         .flow-steps { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
         .flow-step { flex:1; min-width:140px; text-align:center; position:relative; transition: transform 0.3s ease; cursor: pointer; }
         .flow-step:hover { transform: scale(1.08); }
