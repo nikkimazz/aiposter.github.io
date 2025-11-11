@@ -1,347 +1,245 @@
+<!--
+  Nikola Kirsten Mazzarella | Personal Website
+  SpaceX-style theme with blended gradient + background image
+  ISU-inspired colors and accessible single-page design
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Mission Financial Planning AI - System Architecture</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        :root {
-            --isu-blue: #001454;
-            --isu-secondary: #002366;
-            --isu-accent: #0a3c86;
-            --white: #ffffff;
-            --light-bg: #f4f7fb;
-            --text-color: #222222;
-            --heading-font: 'Calibri', 'Arial', sans-serif;
-            --body-font: 'Calibri', 'Arial', sans-serif;
-            --card-shadow: 0 12px 24px rgba(0, 20, 84, 0.12);
-        }
+  <!-- Google Fonts: Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nikola Kirsten Mazzarella | Master’s student at ISU | NASA experience in systems, modeling & space mission leadership">
+  <meta name="author" content="Nikola Kirsten Mazzarella">
+  <meta property="og:title" content="Nikola Kirsten Mazzarella | Personal Website">
+  <meta property="og:description" content="Master’s student at ISU | NASA experience in systems, modeling & space mission leadership">
+  <meta property="og:type" content="website">
+  <title>Nikola Kirsten Mazzarella | Personal Website</title>
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        
-        html, body {
-            margin: 0;
-            padding: 0;
-            font-family: var(--body-font);
-            color: var(--text-color);
-            background-color: var(--light-bg);
-            line-height: 1.6;
-        }
-        
-        .container { max-width:1400px; margin:0 auto; padding:0 20px; }
-        
-        /* Hero Banner */
-        .hero-banner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 3rem 1rem;
-            position: relative;
-            color: var(--white);
-            text-align: center;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            border-radius: 0;
-            /* Hero background: Pexels space image with blue-tinted gradient overlay */
-            background-image:
-                linear-gradient(135deg, rgba(0, 20, 80, 0.87) 0%, rgba(5, 35, 90, 0.85) 40%, rgba(15, 50, 110, 0.83) 100%),
-                url('pexels-shashank-brahmavar-737732917-18507019.jpg');
-            background-size: cover, cover;
-            background-position: center, center;
-            background-attachment: scroll;
-            background-blend-mode: multiply;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .hero-logo {
-            width: 160px;
-            height: auto;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
-            margin-bottom: 8px;
-        }
-        
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
-        }
-        
-        h1 { 
-            text-align:center; 
-            font-size:3.2rem; 
-            margin-bottom:16px; 
-            color: var(--white); 
-            font-family: var(--heading-font); 
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            padding-bottom: 16px;
-            background: linear-gradient(90deg, transparent, rgba(100,200,255,0.9), rgba(255,255,255,0.8), rgba(100,200,255,0.9), transparent) bottom no-repeat;
-            background-size: 100% 3px;
-            display: inline-block;
-            width: 100%;
-            position: relative;
-        }
-        .subtitle { text-align:center; color: rgba(255,255,255,0.95); margin-bottom:10px; font-size:1.0rem; }
-        .subtitle-line { display:block; font-weight:600; color: rgba(255,255,255,0.95); }
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        .hero-title-small { margin-top: 6px; font-size:1.25rem; color: rgba(255,255,255,0.95); font-weight:600; }
-        .hero-desc { margin-top:10px; color: rgba(255,255,255,0.9); font-size:1rem; max-width:820px; margin-left:auto; margin-right:auto; }
-        .hero-event { margin-top:12px; font-size:0.95rem; color: rgba(255,255,255,0.9); font-weight:600; }
-
-        /* problem-statement */
-        .problem-statement {
-            background: #e6f0ff;
-            color: var(--text-color);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            font-size: 1rem;
-            line-height: 1.6;
-            border-left: 4px solid var(--isu-blue);
-        }
-
-        .architecture-container { background: var(--white); border-radius:20px; padding:24px; border:1px solid #ddd; margin-bottom:28px; box-shadow: var(--card-shadow); }
-        .layer { margin-bottom:20px; opacity:0; transform:translateY(12px); animation: fadeInUp 0.8s forwards; }
-        .layer:nth-child(1) { animation-delay:0.1s; }
-        .layer:nth-child(2) { animation-delay:0.2s; }
-        .layer:nth-child(3) { animation-delay:0.3s; }
-        .layer:nth-child(4) { animation-delay:0.4s; }
-        .layer:nth-child(5) { animation-delay:0.5s; }
-        @keyframes fadeInUp { to { opacity:1; transform:translateY(0); } }
-
-        .layer-header { background: linear-gradient(90deg, var(--isu-blue), var(--isu-accent)); padding:12px 16px; border-radius:10px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; }
-        .layer-title { font-size:1.05rem; font-weight:600; color: var(--white); }
-        .layer-badge { background: var(--light-bg); padding:5px 12px; border-radius:16px; font-size:0.85rem; color: var(--isu-blue); }
-
-        .components { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
-        .component { background: var(--light-bg); padding:12px; border-radius:10px; border:1px solid #ddd; transition: all 0.25s ease; cursor:default; }
-        .component:hover { transform: translateY(-4px); box-shadow: var(--card-shadow); }
-        .component-icon { font-size:1.4rem; margin-bottom:8px; }
-        .component-name { font-weight:600; margin-bottom:6px; color: var(--isu-blue); }
-        .component-desc { font-size:0.9rem; color: #555; }
-
-        .agent-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
-        .agent-card { background: var(--white); padding:14px; border-radius:12px; border:1px solid #ddd; box-shadow: 0 4px 12px rgba(0, 20, 84, 0.08); transition: all 0.3s ease; }
-        .agent-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow); }
-        .agent-icon { width:44px; height:44px; background: linear-gradient(135deg, var(--isu-blue), var(--isu-accent)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; margin-bottom:12px; }
-        .agent-name { font-size:1rem; font-weight:700; margin-bottom:8px; color: var(--isu-blue); }
-        .agent-functions { list-style:none; font-size:0.9rem; color: #555; padding-left:0; }
-        .agent-functions li { margin-bottom:6px; padding-left:14px; position:relative; }
-        .agent-functions li::before { content:'▸'; position:absolute; left:0; color: var(--isu-accent); }
-
-        .flow-diagram { background: var(--white); border-radius:14px; padding:20px; margin-top:28px; box-shadow: var(--card-shadow); }
-        .flow-title { text-align:center; font-size:1.2rem; margin-bottom:16px; color: var(--isu-blue); }
-        .flow-steps { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-        .flow-step { flex:1; min-width:140px; text-align:center; position:relative; }
-        .flow-step-circle { width:64px; height:64px; background: linear-gradient(135deg, var(--isu-blue), var(--isu-accent)); border-radius:50%; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; font-size:1.6rem; font-weight:bold; color: var(--white); box-shadow: var(--card-shadow); }
-        .flow-step-text { font-size:0.95rem; color: var(--text-color); }
-        .flow-arrow { position:absolute; top:30px; right:-26px; font-size:1.6rem; color: var(--isu-accent); }
-
-        .metrics-dashboard { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:20px; }
-        .metric-card { background: var(--white); padding:12px; border-radius:10px; text-align:center; border:1px solid #ddd; box-shadow: 0 4px 12px rgba(0, 20, 84, 0.08); }
-        .metric-value { font-size:1.4rem; font-weight:700; color: var(--isu-blue); }
-        .metric-label { font-size:0.85rem; color: #666; margin-top:6px; }
-
-        /* Constrain charts so they don't become oversized on wide displays */
-        .chart-container { margin:24px auto; background: var(--white); padding:24px; border-radius:10px; max-width:1000px; width:100%; box-shadow: var(--card-shadow); }
-        .chart-container h2 { margin-bottom:18px; color: var(--isu-blue); font-size:1.3rem; }
-        .chart-container canvas { width:100% !important; height:380px !important; }
-
-        @media (max-width:768px){
-            .components { grid-template-columns:1fr; }
-            .agent-grid { grid-template-columns:1fr; }
-            .flow-arrow { display:none; }
-            .hero-logo { width: 80px; }
-            h1 { font-size: 2rem; }
-        }
-    </style>
-</head>
-<body>
-    <!-- Hero Banner -->
-    <div class="hero-banner">
-        <div class="hero-content">
-            <img src="ISU-Logo-patch-300px.png" alt="ISU Mission Patch" class="hero-logo" />
-            <h1>B.U.D.G.I.E</h1>
-            <p class="subtitle"><span class="subtitle-line">BUDGET UTILISATION DYNAMIC</span><span class="subtitle-line">GUIDANCE INTELLIGENCE ENGINE</span></p>
-        </div>
-    </div>
-    
-    <div class="container">
-
-        <div class="problem-statement">
-            Planning a space mission involves complex decisions, high costs, and significant risks.
-            Our AI-driven system enables multi-agent collaboration to estimate costs, optimize budgets, and assess risks
-            in near-real time to support efficient financial planning.
-        </div>
-
-        <!-- Architecture Layers -->
-        <div class="architecture-container">
-            <!-- Layer 5: Interface & Reporting -->
-            <div class="layer">
-                <div class="layer-header"><span class="layer-title">Layer 5: Interface & Reporting</span><span class="layer-badge">User Interaction</span></div>
-                <div class="components">
-                    <div class="component"><div class="component-icon">📊</div><div class="component-name">Interactive Dashboards</div><div class="component-desc">Real-time visualization of mission finances</div></div>
-                    <div class="component"><div class="component-icon">💬</div><div class="component-name">NLP Query Interface</div><div class="component-desc">Natural language financial queries</div></div>
-                    <div class="component"><div class="component-icon">📈</div><div class="component-name">Report Generation</div><div class="component-desc">Automated financial reports</div></div>
-                    <div class="component"><div class="component-icon">🔔</div><div class="component-name">Alert System</div><div class="component-desc">Budget threshold notifications</div></div>
-                    <div class="component"><div class="component-icon">🔌</div><div class="component-name">Integration APIs</div><div class="component-desc">External system connectivity</div></div>
-                </div>
-            </div>
-
-            <!-- Layer 4: Specialized AI Agents -->
-            <div class="layer">
-                <div class="layer-header"><span class="layer-title">Layer 4: Specialized AI Agents</span><span class="layer-badge">Intelligence Layer</span></div>
-                <div class="agent-grid">
-                    <div class="agent-card"><div class="agent-icon">💰</div><div class="agent-name">Cost Estimation Agent</div><ul class="agent-functions"><li>Parametric cost modeling</li><li>WBS analysis</li><li>Confidence intervals</li></ul></div>
-                    <div class="agent-card"><div class="agent-icon">⚠️</div><div class="agent-name">Risk Assessment Agent</div><ul class="agent-functions"><li>Risk identification</li><li>Impact quantification</li><li>Mitigation strategies</li></ul></div>
-                    <div class="agent-card"><div class="agent-icon">🎯</div><div class="agent-name">Budget Optimization Agent</div><ul class="agent-functions"><li>Resource allocation</li><li>Trade-off analysis</li><li>Cost reduction</li></ul></div>
-                    <div class="agent-card"><div class="agent-icon">🛒</div><div class="agent-name">Procurement Planning Agent</div><ul class="agent-functions"><li>Vendor analysis</li><li>Contract optimization</li><li>Supply chain monitoring</li></ul></div>
-                    <div class="agent-card"><div class="agent-icon">📅</div><div class="agent-name">Timeline & Resource Agent</div><ul class="agent-functions"><li>Schedule alignment</li><li>Cash flow forecasting</li><li>Resource utilization</li></ul></div>
-                    <div class="agent-card"><div class="agent-icon">✅</div><div class="agent-name">Compliance Agent</div><ul class="agent-functions"><li>Regulatory tracking</li><li>Audit preparation</li><li>Policy enforcement</li></ul></div>
-                    <div class="agent-card"><div class="agent-icon">🔮</div><div class="agent-name">Scenario Analysis Agent</div><ul class="agent-functions"><li>What-if analysis</li><li>Contingency planning</li><li>Sensitivity testing</li></ul></div>
-                </div>
-            </div>
-
-            <!-- Layer 3: Agent Orchestration -->
-            <div class="layer">
-                <div class="layer-header"><span class="layer-title">Layer 3: Agent Orchestration</span><span class="layer-badge">Coordination</span></div>
-                <div class="components">
-                    <div class="component"><div class="component-icon">🎭</div><div class="component-name">Central Coordinator</div><div class="component-desc">Master agent orchestration</div></div>
-                    <div class="component"><div class="component-icon">📋</div><div class="component-name">Task Allocation</div><div class="component-desc">Dynamic work distribution</div></div>
-                    <div class="component"><div class="component-icon">🔄</div><div class="component-name">Communication Protocol</div><div class="component-desc">Inter-agent messaging</div></div>
-                    <div class="component"><div class="component-icon">🤝</div><div class="component-name">Consensus Engine</div><div class="component-desc">Decision reconciliation</div></div>
-                </div>
-            </div>
-
-            <!-- Layer 2: Knowledge Base -->
-            <div class="layer">
-                <div class="layer-header"><span class="layer-title">Layer 2: Knowledge Base</span><span class="layer-badge">Intelligence Repository</span></div>
-                <div class="components">
-                    <div class="component"><div class="component-icon">📚</div><div class="component-name">Cost Models</div><div class="component-desc">Historical mission templates</div></div>
-                    <div class="component"><div class="component-icon">🎲</div><div class="component-name">Risk Frameworks</div><div class="component-desc">Risk assessment methodologies</div></div>
-                    <div class="component"><div class="component-icon">📏</div><div class="component-name">Industry Benchmarks</div><div class="component-desc">Performance standards</div></div>
-                    <div class="component"><div class="component-icon">📜</div><div class="component-name">Regulations</div><div class="component-desc">Compliance requirements</div></div>
-                </div>
-            </div>
-
-            <!-- Layer 1: Data Ingestion -->
-            <div class="layer">
-                <div class="layer-header"><span class="layer-title">Layer 1: Data Ingestion & Processing</span><span class="layer-badge">Foundation</span></div>
-                <div class="components">
-                    <div class="component"><div class="component-icon">🗄️</div><div class="component-name">Historical Data</div><div class="component-desc">Past mission archives</div></div>
-                    <div class="component"><div class="component-icon">⚡</div><div class="component-name">Real-time Tracking</div><div class="component-desc">Live cost monitoring</div></div>
-                    <div class="component"><div class="component-icon">🌍</div><div class="component-name">External Data</div><div class="component-desc">Market & economic data</div></div>
-                    <div class="component"><div class="component-icon">👥</div><div class="component-name">Vendor Systems</div><div class="component-desc">Supplier information</div></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Process Flow -->
-        <div class="flow-diagram">
-            <h2 class="flow-title">Intelligent Planning Process Flow</h2>
-            <div class="flow-steps">
-                <div class="flow-step"><div class="flow-step-circle">1</div><div class="flow-step-text">Mission Requirements Input</div><div class="flow-arrow">→</div></div>
-                <div class="flow-step"><div class="flow-step-circle">2</div><div class="flow-step-text">Multi-Agent Analysis</div><div class="flow-arrow">→</div></div>
-                <div class="flow-step"><div class="flow-step-circle">3</div><div class="flow-step-text">Optimization & Planning</div><div class="flow-arrow">→</div></div>
-                <div class="flow-step"><div class="flow-step-circle">4</div><div class="flow-step-text">Scenario Evaluation</div><div class="flow-arrow">→</div></div>
-                <div class="flow-step"><div class="flow-step-circle">5</div><div class="flow-step-text">Financial Plan Output</div></div>
-            </div>
-        </div>
-
-        <!-- Key Performance Metrics -->
-        <div class="metrics-dashboard">
-            <div class="metric-card"><div class="metric-value">±5%</div><div class="metric-label">Cost Estimation Accuracy</div></div>
-            <div class="metric-card"><div class="metric-value">15%</div><div class="metric-label">Average Budget Savings</div></div>
-            <div class="metric-card"><div class="metric-value">85%</div><div class="metric-label">Risk Prediction Accuracy</div></div>
-            <div class="metric-card"><div class="metric-value">&lt;2s</div><div class="metric-label">Query Response Time</div></div>
-            <div class="metric-card"><div class="metric-value">99.9%</div><div class="metric-label">System Availability</div></div>
-            <div class="metric-card"><div class="metric-value">24/7</div><div class="metric-label">Autonomous Monitoring</div></div>
-        </div>
-
-        <!-- Interactive Charts -->
-        <div class="chart-container">
-            <h2>Cost Breakdown Over Mission Phases</h2>
-            <canvas id="costChart" style="height:220px;"></canvas>
-        </div>
-        <div class="chart-container">
-            <h2>Timeline & Cash Flow</h2>
-            <canvas id="timelineChart" style="height:220px;"></canvas>
-        </div>
-
-    </div>
-
-    <!-- Chart.js Script -->
-    <script>
-    async function loadCharts() {
-        // Placeholder JSON until backend is ready
-        const data = {
-            cost_breakdown: { "Design": 20, "Launch": 40, "Operations": 30, "Contingency": 10 },
-            timeline_cashflow: { "Month 1": 5, "Month 2": 10, "Month 3": 8, "Month 4": 12, "Month 5": 6 }
-        };
-
-        // --- Cost Breakdown Chart (doughnut) ---
-        const costCtx = document.getElementById('costChart').getContext('2d');
-        new Chart(costCtx, {
-            type: 'doughnut',
-            data: {
-                labels: Object.keys(data.cost_breakdown),
-                datasets: [{
-                    data: Object.values(data.cost_breakdown),
-                    backgroundColor: ['#001454', '#0a3c86', '#002366', '#a3c2ff'],
-                    borderColor: '#ffffff',
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: { position: 'bottom', labels: { color: '#222222', font: { family: "'Calibri', Arial, sans-serif" } } }
-                }
-            }
-        });
-
-        // --- Timeline & Cash Flow Chart (bar) ---
-        const timelineCtx = document.getElementById('timelineChart').getContext('2d');
-        new Chart(timelineCtx, {
-            type: 'bar',
-            data: {
-                labels: Object.keys(data.timeline_cashflow),
-                datasets: [{
-                    label: 'Cash Flow',
-                    data: Object.values(data.timeline_cashflow),
-                    backgroundColor: '#0a3c86',
-                    borderRadius: 6,
-                    borderColor: '#001454',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    x: { ticks: { color: '#222222', font: { family: "'Calibri', Arial, sans-serif" } }, grid: { color: '#e0e0e0' } },
-                    y: { beginAtZero: true, ticks: { color: '#222222', font: { family: "'Calibri', Arial, sans-serif" } }, grid: { color: '#e0e0e0' } }
-                },
-                plugins: { legend: { display: false } }
-            }
-        });
+  <style>
+    :root {
+      --isu-blue: #0b3d91;
+      --isu-gold: #f0b429;
+      --isu-ink: #0d1b2a;
+      --isu-sky: #e6f1ff;
     }
 
-    document.addEventListener('DOMContentLoaded', loadCharts);
-    </script>
+    body {
+      margin: 0;
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #e0e0e0;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      background: linear-gradient(135deg, rgba(11,12,16,0.6), rgba(31,40,51,0.6), rgba(13,27,42,0.6), rgba(0,0,0,0.6)),
+                  url('Mars_Web_8fafe15a48.jpg') no-repeat center center fixed;
+      background-size: cover;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    a { text-decoration: none; color: var(--isu-gold); }
+    a:hover { text-decoration: underline; }
+
+    .navbar { backdrop-filter: blur(10px); }
+    header { text-align: center; padding: 100px 20px; }
+  header h1 { font-size: 3rem; color: #fff; letter-spacing: 2px; font-family: 'Roboto', sans-serif; }
+    header p { font-size: 1.3rem; color: var(--isu-gold); }
+
+    section { max-width: 900px; margin: 40px auto; padding: 30px; background: rgba(15,15,15,0.7); border-radius: 15px; box-shadow: 0 0 20px rgba(240,180,41,0.3); }
+  section h2 { font-size: 2rem; color: var(--isu-gold); margin-bottom: 20px; border-bottom: 2px solid var(--isu-gold); display: inline-block; padding-bottom: 5px; font-family: 'Roboto', sans-serif; }
+    section p, li { font-size: 1.1rem; color: #e0e0e0; }
+
+    .project-card { margin-bottom: 20px; }
+    .timeline { list-style: none; padding-left: 0; position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 4px; background: var(--isu-gold); }
+    .timeline li { position: relative; padding-left: 50px; margin-bottom: 30px; }
+    .timeline li::before { content: ''; position: absolute; left: 10px; top: 0; width: 20px; height: 20px; background: var(--isu-gold); border-radius: 50%; }
+    
+    footer { text-align: center; padding: 20px; color: #c5c6c7; font-size: 0.9rem; }
+
+    #skipLink { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    #skipLink:focus { left: 10px; top: 10px; width: auto; height: auto; background: #000; color: #fff; padding: 5px 10px; z-index: 1000; }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video loop muted autoplay playsinline webkit-playsinline id="bg-video" class="full-bg-video" style="z-index:-1;">
+    <source src="https://vast-public.s3.us-east-1.amazonaws.com/May-2025/0519+SpaceX+(web).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <a id="skipLink" href="#main">Skip to content</a>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">NKM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cv">CV</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><button class="btn btn-sm btn-outline-light ms-2" id="themeToggle">Toggle Theme</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <header>
+      <h1>Nikola Kirsten Mazzarella</h1>
+      <p>Master’s student at ISU | NASA experience in systems, modeling & space mission leadership</p>
+      <div class="mt-3">
+        <a href="#projects" class="btn btn-outline-warning btn-lg me-2">Projects</a>
+        <a href="#cv" class="btn btn-outline-warning btn-lg me-2" id="cvBtn" style="display:none;">Open CV</a>
+        <span id="cvNote" class="text-warning">Add cv.pdf to enable the CV button</span>
+        <a href="#contact" class="btn btn-outline-warning btn-lg">Contact</a>
+      </div>
+      <p class="mt-2 small text-light">Unofficial student page. “International Space University” named here for study use only.</p>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I am pursuing a Master of Space Exploration at ISU, with experience in NASA CubeSat missions, computational modeling, and strategic planning. My goal is to support safe and sustainable human spaceflight missions.</p>
+      <p><strong>Focus Areas:</strong> Space mission planning, Systems integration, Computational modeling, Human spaceflight</p>
+      <p><strong>Tools:</strong> Python, Geant4, AMMPER, CAD (basic), Microsoft Office, SharePoint, Data analysis</p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-card">
+        <h4>VIA-SEEs CubeSat Mission</h4>
+        <p>Managed NASA CubeSat mission integrating science and engineering requirements</p>
+        <ul>
+          <li>Project management</li>
+          <li>Requirements verification</li>
+          <li>Successful mission design & planning</li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <h4>AMMPER Simulation Framework</h4>
+        <p>Developed agent-based models for space radiation effects on biological systems</p>
+        <ul>
+          <li>Python modeling</li>
+          <li>Geant4 integration</li>
+          <li>Validated against experimental data</li>
+        </ul>
+      </div>
+      <div class="project-card">
+        <h4>Strategic Planning & Integration at NASA HQ</h4>
+        <p>Supported strategic communications and stakeholder engagement for NASA programs</p>
+        <ul>
+          <li>Policy communication</li>
+          <li>Audience analysis</li>
+          <li>Knowledge management tools</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <ul class="timeline">
+        <li>
+          <strong>Project Manager Intern</strong>, VIA-SEEs Small Satellite Mission, NASA Hawaii Space Grant Consortium (01/2024 – 06/2024)<br>
+          Directed mission planning and technical development, coordinated launch integration
+        </li>
+        <li>
+          <strong>Computational Modeling Intern</strong>, NASA Ames Research Center (06/2025 – 08/2025)<br>
+          Built and validated simulation frameworks for biological response to space radiation
+        </li>
+        <li>
+          <strong>Strategic Planning & Integration Intern</strong>, NASA Headquarters (06/2024 – 08/2024)<br>
+          Supported stakeholder engagement and communication strategy
+        </li>
+      </ul>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+      <h2>CV</h2>
+      <p id="cvNote">Add cv.pdf to enable the CV button</p>
+      <a href="cv.pdf" target="_blank" class="btn btn-outline-warning" id="cvBtn" style="display:none;">Open CV</a>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <span id="email">nikola.mazarella@community.isunet.edu</span></p>
+      <a href="mailto:nikola.mazarella@community.isunet.edu" class="btn btn-outline-warning me-2" id="mailLink">Email</a>
+      <button class="btn btn-outline-warning" id="copyEmailBtn">Copy email</button>
+    </section>
+
+    <!-- Edit Checklist -->
+    <section id="edit-checklist">
+      <h2>Edit Checklist</h2>
+      <ul>
+        <li>Check profile image</li>
+        <li>Update CV if changed</li>
+        <li>Add new projects</li>
+        <li>Verify links</li>
+        <li>Confirm theme toggle works</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span id="year"></span> Nikola Kirsten Mazzarella | Unofficial student page</p>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.documentElement;
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme) body.setAttribute('data-bs-theme', savedTheme);
+    themeToggle.addEventListener('click', () => {
+      const current = body.getAttribute('data-bs-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      body.setAttribute('data-bs-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // CV check
+    fetch('cv.pdf', { method: 'HEAD' }).then(res => {
+      if(res.ok) {
+        document.getElementById('cvBtn').style.display = 'inline-block';
+        document.getElementById('cvNote').style.display = 'none';
+      }
+    }).catch(() => {});
+
+    // Copy email
+    const copyBtn = document.getElementById('copyEmailBtn');
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(document.getElementById('email').textContent);
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => { copyBtn.textContent = 'Copy email'; }, 2000);
+    });
+  </script>
 </body>
 </html>
