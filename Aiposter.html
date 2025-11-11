@@ -103,15 +103,44 @@
 
         /* problem-statement */
         .problem-statement {
-
-            background: #e6f0ff;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: linear-gradient(135deg, #eef4ff 0%, #ffffff 55%, #eef4ff 100%);
             color: var(--text-color);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            font-size: 1rem;
-            line-height: 1.6;
-            border-left: 4px solid var(--isu-blue);
+            padding: 22px 22px;
+            border-radius: 14px;
+            margin-bottom: 28px;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            border-left: 6px solid var(--isu-accent);
+            box-shadow: var(--card-shadow);
+        }
+        .problem-statement::before {
+            content: '🚀';
+            flex: 0 0 38px;
+            width: 38px; height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--isu-blue), var(--isu-accent));
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(0,20,84,0.18);
+            filter: saturate(1.1);
+            margin-top: 2px;
+        }
+        .problem-statement strong { color: var(--isu-blue); }
+        .problem-statement .pill {
+            display: inline-block;
+            background: #dfeafe;
+            color: var(--isu-blue);
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+            margin: 0 2px;
+            box-shadow: 0 2px 6px rgba(0,20,84,0.12);
+            border: 1px solid rgba(0,20,84,0.15);
         }
 
         .architecture-container { background: var(--white); border-radius:20px; padding:24px; border:1px solid #ddd; margin-bottom:28px; box-shadow: var(--card-shadow); }
@@ -218,9 +247,10 @@
     <div class="container">
 
         <div class="problem-statement">
-            Planning a space mission involves complex decisions, high costs, and significant risks.
-            Our AI-driven system enables multi-agent collaboration to estimate costs, optimize budgets, and assess risks
-            in near-real time to support efficient financial planning.
+            <div>
+                <strong>Planning a space mission</strong> involves <span class="pill">complex decisions</span>, <span class="pill">high costs</span>, and <span class="pill">significant risks</span>. <br/>
+                Our <strong>AI-driven system</strong> enables <span class="pill">multi-agent collaboration</span> to <strong>estimate costs</strong>, <strong>optimize budgets</strong>, and <strong>assess risks</strong> in <span class="pill">near-real time</span> to support efficient <strong>financial planning</strong>.
+            </div>
         </div>
 
 
