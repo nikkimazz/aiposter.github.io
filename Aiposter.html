@@ -104,15 +104,6 @@
         /* problem-statement */
         .problem-statement {
 
-        /* High-Level Purpose Section */
-        .purpose-section { background: linear-gradient(135deg, #f8faff, #ffffff); border-radius:16px; padding:28px; margin-bottom:28px; border-left:5px solid var(--isu-blue); box-shadow: var(--card-shadow); }
-        .purpose-title { font-size:1.5rem; color: var(--isu-blue); margin-bottom:14px; font-weight:700; text-align:center; }
-        .purpose-intro { font-size:1.05rem; color: var(--text-color); margin-bottom:20px; text-align:center; line-height:1.7; }
-        .purpose-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; }
-        .purpose-item { background:var(--white); padding:16px; border-radius:12px; display:flex; align-items:center; gap:14px; box-shadow:0 4px 12px rgba(0, 20, 84, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; border-left:3px solid var(--isu-accent); }
-        .purpose-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0, 20, 84, 0.15); }
-        .purpose-icon { font-size:2rem; min-width:40px; text-align:center; }
-        .purpose-text { font-size:0.95rem; color: var(--text-color); line-height:1.5; }
             background: #e6f0ff;
             color: var(--text-color);
             padding: 20px;
@@ -202,34 +193,43 @@
         </div>
 
 
-        <!-- High-Level Purpose -->
-        <div class="purpose-section">
-            <h2 class="purpose-title">High-Level Purpose</h2>
+
+        <!-- High-Level Purpose Flow -->
+        <div class="flow-diagram">
+            <h2 class="flow-title">High-Level Purpose: How B.U.D.G.I.E Works</h2>
             <p class="purpose-intro">B.U.D.G.I.E takes mission input data (like payload mass, TRL, mission duration, etc.), learns patterns from historical missions, and then:</p>
-            <div class="purpose-grid">
-                <div class="purpose-item">
-                    <div class="purpose-icon">📊</div>
-                    <div class="purpose-text">Predicts total mission cost using machine learning</div>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="flow-step-circle">📊</div>
+                    <div class="flow-step-text">Predicts Mission Cost (ML)</div>
+                    <svg class="flow-arrow" width="40" height="40" viewBox="0 0 40 40"><defs><linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0a3c86;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#0a3c86;stop-opacity:1" /></linearGradient></defs><path d="M5,20 L30,20 M25,15 L35,20 L25,25" stroke="url(#arrowGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
-                <div class="purpose-item">
-                    <div class="purpose-icon">⚠️</div>
-                    <div class="purpose-text">Calculates risk and cost-overrun probabilities</div>
+                <div class="flow-step">
+                    <div class="flow-step-circle">⚠️</div>
+                    <div class="flow-step-text">Calculates Risk & Overruns</div>
+                    <svg class="flow-arrow" width="40" height="40" viewBox="0 0 40 40"><defs><linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0a3c86;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#0a3c86;stop-opacity:1" /></linearGradient></defs><path d="M5,20 L30,20 M25,15 L35,20 L25,25" stroke="url(#arrowGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
-                <div class="purpose-item">
-                    <div class="purpose-icon">📈</div>
-                    <div class="purpose-text">Fits statistical distributions to uncertainty</div>
+                <div class="flow-step">
+                    <div class="flow-step-circle">📈</div>
+                    <div class="flow-step-text">Fits Uncertainty Distributions</div>
+                    <svg class="flow-arrow" width="40" height="40" viewBox="0 0 40 40"><defs><linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0a3c86;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#0a3c86;stop-opacity:1" /></linearGradient></defs><path d="M5,20 L30,20 M25,15 L35,20 L25,25" stroke="url(#arrowGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
-                <div class="purpose-item">
-                    <div class="purpose-icon">📉</div>
-                    <div class="purpose-text">Generates visualizations (Gantt timelines, cost breakdowns, risk matrix, etc.)</div>
+                <div class="flow-step">
+                    <div class="flow-step-circle">📉</div>
+                    <div class="flow-step-text">Generates Visualizations</div>
+                    <svg class="flow-arrow" width="40" height="40" viewBox="0 0 40 40"><defs><linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0a3c86;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#0a3c86;stop-opacity:1" /></linearGradient></defs><path d="M5,20 L30,20 M25,15 L35,20 L25,25" stroke="url(#arrowGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
-                <div class="purpose-item">
-                    <div class="purpose-icon">🎯</div>
-                    <div class="purpose-text">Optimizes budget allocation</div>
+                <div class="flow-step">
+                    <div class="flow-step-circle">🎯</div>
+                    <div class="flow-step-text">Optimizes Budget</div>
+                    <svg class="flow-arrow" width="40" height="40" viewBox="0 0 40 40"><defs><linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#0a3c86;stop-opacity:0.6" /><stop offset="100%" style="stop-color:#0a3c86;stop-opacity:1" /></linearGradient></defs><path d="M5,20 L30,20 M25,15 L35,20 L25,25" stroke="url(#arrowGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
-                <div class="purpose-item">
-                    <div class="purpose-icon">📋</div>
-                    <div class="purpose-text">Outputs a dashboard for decision-makers</div>
+                <div class="flow-step">
+                    <div class="flow-step-circle">📋</div>
+                    <div class="flow-step-text">Outputs Dashboard</div>
+                </div>
+            </div>
+        </div>
                 </div>
             </div>
         </div>
