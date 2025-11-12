@@ -121,6 +121,9 @@
             line-height: 1.7;
             border-left: 6px solid var(--isu-accent);
             box-shadow: var(--card-shadow);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .problem-statement::before {
             content: '';
@@ -174,7 +177,7 @@
         .component-desc { font-size:0.9rem; color: #555; }
 
     /* Comparison Section: ChatGPT vs. BUDGIE */
-    .comparison-section { background: var(--white); border-radius:20px; padding:24px; border:1px solid #ddd; margin:28px 0; box-shadow: var(--card-shadow); }
+    .comparison-section { background: var(--white); border-radius:20px; padding:24px; border:1px solid #ddd; margin:28px auto; box-shadow: var(--card-shadow); max-width: 1200px; }
     .comparison-header { text-align:center; font-size:1.6rem; color: var(--isu-blue); margin-bottom:8px; }
     .comparison-subtitle { text-align:center; color:#555; margin-bottom:20px; font-size:0.95rem; }
     .compare-wrapper { --pos:50%; position:relative; display:grid; grid-template-columns: var(--pos) calc(100% - var(--pos)); border:1px solid #e2e6ef; border-radius:14px; overflow:hidden; box-shadow:0 4px 14px rgba(0,20,84,0.08); }
@@ -198,7 +201,7 @@
         .agent-functions li { margin-bottom:6px; padding-left:14px; position:relative; }
         .agent-functions li::before { content:'▸'; position:absolute; left:0; color: var(--isu-accent); }
 
-    .flow-diagram { background: var(--white); border-radius:14px; padding:16px 20px 20px; margin-top:14px; box-shadow: var(--card-shadow); }
+    .flow-diagram { background: var(--white); border-radius:14px; padding:16px 20px 20px; margin-top:14px; box-shadow: var(--card-shadow); max-width: 1200px; margin-left: auto; margin-right: auto; }
         .flow-title { text-align:center; font-size:1.5rem; margin-bottom:16px; color: var(--isu-blue); }
         .purpose-intro { 
             display:block;
@@ -307,8 +310,9 @@
             border: 2px solid var(--isu-accent);
             border-radius: 16px;
             padding: 28px 32px;
-            margin: 28px 0;
+            margin: 28px auto;
             box-shadow: var(--card-shadow);
+            max-width: 1200px;
         }
         .mission-planners h2 {
             color: var(--isu-blue);
