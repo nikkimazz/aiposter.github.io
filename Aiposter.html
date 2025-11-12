@@ -287,8 +287,17 @@
         }
         .planners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
+            max-width: 1080px;
+            margin: 0 auto;
+            justify-items: stretch;
+        }
+        @media (max-width: 1024px) {
+            .planners-grid { grid-template-columns: repeat(2, 1fr); max-width: 720px; }
+        }
+        @media (max-width: 640px) {
+            .planners-grid { grid-template-columns: 1fr; max-width: 520px; }
         }
         .planner-item {
             background: #ffffff;
