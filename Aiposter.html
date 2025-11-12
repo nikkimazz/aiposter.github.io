@@ -258,15 +258,15 @@
             box-shadow: 0 6px 14px rgba(0,20,84,0.25); 
         }
         .flow-steps-circular .flow-step-text { font-size:0.85rem; color: var(--text-color); font-weight:600; }
-        /* Positions around circle (center at 50%,50%) */
-        .flow-step[data-pos="1"] { top:8%; left:50%; }
-        .flow-step[data-pos="2"] { top:25%; left:85%; }
-        .flow-step[data-pos="3"] { top:55%; left:93%; }
-        .flow-step[data-pos="4"] { top:82%; left:72%; }
-        .flow-step[data-pos="5"] { top:92%; left:38%; }
-        .flow-step[data-pos="6"] { top:75%; left:13%; }
-        .flow-step[data-pos="7"] { top:45%; left:4%; }
-        .flow-step[data-pos="8"] { top:18%; left:20%; }
+        /* Positions around circle (center at 50%,50%) - perfectly spaced at 45° intervals */
+        .flow-step[data-pos="1"] { top:5%; left:50%; }      /* 0° - top */
+        .flow-step[data-pos="2"] { top:15%; left:85%; }     /* 45° - top-right */
+        .flow-step[data-pos="3"] { top:50%; left:95%; }     /* 90° - right */
+        .flow-step[data-pos="4"] { top:85%; left:85%; }     /* 135° - bottom-right */
+        .flow-step[data-pos="5"] { top:95%; left:50%; }     /* 180° - bottom */
+        .flow-step[data-pos="6"] { top:85%; left:15%; }     /* 225° - bottom-left */
+        .flow-step[data-pos="7"] { top:50%; left:5%; }      /* 270° - left */
+        .flow-step[data-pos="8"] { top:15%; left:15%; }     /* 315° - top-left */
         .flow-center { 
             position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); 
             width:220px; height:220px; background: linear-gradient(135deg,#ffffff,#eef4ff); border:2px solid var(--isu-accent); border-radius:50%; 
