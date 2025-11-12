@@ -547,11 +547,18 @@
     </div>
 
     <!-- Footer with BUDGIE Logo -->
-    <div style="text-align:center; padding:40px 20px; background:linear-gradient(135deg, #f0f6ff, #ffffff); border-top:2px solid #e2e6ef;">
+    <div style="text-align:center; padding:40px 20px; background:linear-gradient(135deg, #f0f6ff, #ffffff); border-top:2px solid #e2e6ef; position:relative;">
         <img src="pixelated-budgie-logo.png" alt="BUDGIE Logo" style="width:120px; height:120px; margin-bottom:16px;">
-        <p style="font-size:1.2rem; color:var(--isu-blue); font-weight:600; margin:0;">
-            <strong>BUDGIE</strong> your smart companion for space missions
-        </p>
+        <div style="position:relative; display:inline-block; margin-left:140px; margin-top:-80px;">
+            <div style="background:#fff; border:2px solid var(--isu-blue); border-radius:20px; padding:12px 20px; box-shadow:0 4px 12px rgba(0,20,84,0.15); position:relative;">
+                <p style="font-size:1.1rem; color:var(--isu-blue); font-weight:600; margin:0;">
+                    <strong>BUDGIE</strong> your smart companion for space missions
+                </p>
+                <!-- Speech bubble pointer -->
+                <div style="position:absolute; left:-12px; top:50%; transform:translateY(-50%); width:0; height:0; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid var(--isu-blue);"></div>
+                <div style="position:absolute; left:-9px; top:50%; transform:translateY(-50%); width:0; height:0; border-top:9px solid transparent; border-bottom:9px solid transparent; border-right:10px solid #fff;"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Chart.js Script -->
