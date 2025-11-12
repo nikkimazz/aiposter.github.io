@@ -192,6 +192,14 @@
     .compare-range { width:100%; margin:16px 0 0; }
     .compare-note { text-align:center; font-size:0.75rem; color:#666; margin-top:10px; }
 
+    /* Uniform metric bubbles for both sides */
+    .metrics-bubbles { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:6px; }
+    .metric-bubble { background:#ffffff; border:1px solid #e2e6ef; border-radius:999px; padding:8px 14px; box-shadow:0 2px 8px rgba(0,20,84,0.06); display:flex; align-items:baseline; gap:8px; }
+    .metric-label { font-size:0.78rem; color:#666; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; }
+    .metric-value { font-size:0.98rem; color: var(--isu-blue); font-weight:800; }
+    .compare-pane.left .metric-bubble { background:#fff; }
+    .compare-pane.right .metric-bubble { background:#fff; }
+
         .agent-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
         .agent-card { background: var(--white); padding:14px; border-radius:12px; border:1px solid #ddd; box-shadow: 0 4px 12px rgba(0, 20, 84, 0.08); transition: all 0.3s ease; }
         .agent-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow); }
@@ -515,32 +523,30 @@
         <div class="comparison-section" id="comparison">
             <h2 class="comparison-header">ChatGPT vs. BUDGIE</h2>
             <p class="comparison-subtitle">Slide to compare generic conversational output with domain-focused, structured mission planning intelligence.</p>
-            <div class="compare-wrapper" id="compareWrapper" style="--pos:50%">
+            <div class="compare-wrapper" id="compareWrapper" style="--pos:0%">
                 <div class="compare-pane left">
                     <div class="compare-title">ChatGPT Style Output</div>
-                    <ul class="compare-list">
-                        <li>General narrative descriptions</li>
-                        <li>High-level budgeting suggestions</li>
-                        <li>Limited temporal or cost structure</li>
-                        <li>No integrated risk quantification</li>
-                        <li>Manual extraction for reports</li>
-                    </ul>
+                    <div class="metrics-bubbles">
+                        <div class="metric-bubble"><span class="metric-label">Estimated Total Cost</span><span class="metric-value">$130,000,000</span></div>
+                        <div class="metric-bubble"><span class="metric-label">Risk Score</span><span class="metric-value">62/100</span></div>
+                        <div class="metric-bubble"><span class="metric-label">AI Confidence</span><span class="metric-value">55%</span></div>
+                        <div class="metric-bubble"><span class="metric-label">Estimated AI Savings</span><span class="metric-value">$9,100,000</span></div>
+                    </div>
                 </div>
                 <div class="compare-pane right">
                     <div class="compare-title">BUDGIE Structured Output</div>
-                    <ul class="compare-list">
-                        <li>Parametric cost breakdown (phases, WBS)</li>
-                        <li>Embedded risk & variance indicators</li>
-                        <li>Multi-scenario budget differentials</li>
-                        <li>Cash flow + timeline alignment</li>
-                        <li>Export-ready financial artifacts</li>
-                    </ul>
+                    <div class="metrics-bubbles">
+                        <div class="metric-bubble"><span class="metric-label">Estimated Total Cost</span><span class="metric-value">$154,000,000</span></div>
+                        <div class="metric-bubble"><span class="metric-label">Risk Score</span><span class="metric-value">35.5/100</span></div>
+                        <div class="metric-bubble"><span class="metric-label">AI Confidence</span><span class="metric-value">82%</span></div>
+                        <div class="metric-bubble"><span class="metric-label">Estimated AI Savings</span><span class="metric-value">$20,000,000</span></div>
+                    </div>
                 </div>
                 <div class="compare-handle" id="compareHandle">
                     <div class="compare-grip">⇆</div>
                 </div>
             </div>
-            <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="50" aria-label="Comparison slider">
+            <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="0" aria-label="Comparison slider">
             <div class="compare-note">Drag the slider or the handle to reveal more of each side.</div>
         </div>
 
