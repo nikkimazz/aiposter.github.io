@@ -511,49 +511,38 @@
             </div>
         </div>
 
-        <!-- Architecture Layers -->
-        <div class="architecture-container">
-
-            <!-- Layer 4: Specialized AI Agents -->
-            
-            <!-- Comparison: ChatGPT vs. BUDGIE (moved under BUDGIE In Action) -->
-            <div class="comparison-section" id="comparison">
-                <h2 class="comparison-header">ChatGPT vs. BUDGIE</h2>
-                <p class="comparison-subtitle">Slide to compare generic conversational output with domain-focused, structured mission planning intelligence.</p>
-                <div class="compare-wrapper" id="compareWrapper" style="--pos:50%">
-                    <div class="compare-pane left">
-                        <div class="compare-title">ChatGPT Style Output</div>
-                        <ul class="compare-list">
-                            <li>General narrative descriptions</li>
-                            <li>High-level budgeting suggestions</li>
-                            <li>Limited temporal or cost structure</li>
-                            <li>No integrated risk quantification</li>
-                            <li>Manual extraction for reports</li>
-                        </ul>
-                    </div>
-                    <div class="compare-pane right">
-                        <div class="compare-title">BUDGIE Structured Output</div>
-                        <ul class="compare-list">
-                            <li>Parametric cost breakdown (phases, WBS)</li>
-                            <li>Embedded risk & variance indicators</li>
-                            <li>Multi-scenario budget differentials</li>
-                            <li>Cash flow + timeline alignment</li>
-                            <li>Export-ready financial artifacts</li>
-                        </ul>
-                    </div>
-                    <div class="compare-handle" id="compareHandle">
-                        <div class="compare-grip">⇆</div>
-                    </div>
+        <!-- Comparison: ChatGPT vs. BUDGIE -->
+        <div class="comparison-section" id="comparison">
+            <h2 class="comparison-header">ChatGPT vs. BUDGIE</h2>
+            <p class="comparison-subtitle">Slide to compare generic conversational output with domain-focused, structured mission planning intelligence.</p>
+            <div class="compare-wrapper" id="compareWrapper" style="--pos:50%">
+                <div class="compare-pane left">
+                    <div class="compare-title">ChatGPT Style Output</div>
+                    <ul class="compare-list">
+                        <li>General narrative descriptions</li>
+                        <li>High-level budgeting suggestions</li>
+                        <li>Limited temporal or cost structure</li>
+                        <li>No integrated risk quantification</li>
+                        <li>Manual extraction for reports</li>
+                    </ul>
                 </div>
-                <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="50" aria-label="Comparison slider">
-                <div class="compare-note">Drag the slider or the handle to reveal more of each side.</div>
+                <div class="compare-pane right">
+                    <div class="compare-title">BUDGIE Structured Output</div>
+                    <ul class="compare-list">
+                        <li>Parametric cost breakdown (phases, WBS)</li>
+                        <li>Embedded risk & variance indicators</li>
+                        <li>Multi-scenario budget differentials</li>
+                        <li>Cash flow + timeline alignment</li>
+                        <li>Export-ready financial artifacts</li>
+                    </ul>
+                </div>
+                <div class="compare-handle" id="compareHandle">
+                    <div class="compare-grip">⇆</div>
+                </div>
             </div>
-
-            
+            <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="50" aria-label="Comparison slider">
+            <div class="compare-note">Drag the slider or the handle to reveal more of each side.</div>
         </div>
-        
-
-    
 
     </div>
 
