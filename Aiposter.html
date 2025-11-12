@@ -156,6 +156,8 @@
     .layer-header { background: linear-gradient(90deg, var(--isu-blue), var(--isu-accent)); padding:12px 16px; border-radius:10px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; }
     .layer-header.centered { justify-content:center; gap:12px; }
         .layer-title { font-size:1.05rem; font-weight:600; color: var(--white); }
+    .layer-media { display:flex; justify-content:center; align-items:center; padding:16px; }
+    .layer-media-img { max-width:100%; height:auto; border-radius:12px; box-shadow: var(--card-shadow); }
         .layer-badge { background: var(--light-bg); padding:5px 12px; border-radius:16px; font-size:0.85rem; color: var(--isu-blue); }
 
         .components { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
@@ -480,12 +482,8 @@
             <!-- BUDGIE In Action (formerly Layer 5: Interface & Reporting) -->
             <div class="layer">
                 <div class="layer-header centered"><span class="layer-title">BUDGIE In Action</span><span class="layer-badge">User Interaction</span></div>
-                <div class="components">
-                    <div class="component"><div class="component-icon">📊</div><div class="component-name">Interactive Dashboards</div><div class="component-desc">Real-time visualization of mission finances</div></div>
-                    <div class="component"><div class="component-icon">💬</div><div class="component-name">NLP Query Interface</div><div class="component-desc">Natural language financial queries</div></div>
-                    <div class="component"><div class="component-icon">📈</div><div class="component-name">Report Generation</div><div class="component-desc">Automated financial reports</div></div>
-                    <div class="component"><div class="component-icon">🔔</div><div class="component-name">Alert System</div><div class="component-desc">Budget threshold notifications</div></div>
-                    <div class="component"><div class="component-icon">🔌</div><div class="component-name">Integration APIs</div><div class="component-desc">External system connectivity</div></div>
+                <div class="layer-media">
+                    <img src="BUDGIE_AI_screen_rec_GIFd.gif" alt="BUDGIE in action screen recording" class="layer-media-img">
                 </div>
             </div>
 
