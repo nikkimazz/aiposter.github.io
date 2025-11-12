@@ -504,6 +504,41 @@
             </div>
 
             <!-- Layer 4: Specialized AI Agents -->
+            
+            <!-- Comparison: ChatGPT vs. BUDGIE (moved under BUDGIE In Action) -->
+            <div class="comparison-section" id="comparison">
+                <h2 class="comparison-header">ChatGPT vs. BUDGIE</h2>
+                <p class="comparison-subtitle">Slide to compare generic conversational output with domain-focused, structured mission planning intelligence.</p>
+                <div class="compare-wrapper" id="compareWrapper" style="--pos:50%">
+                    <div class="compare-pane left">
+                        <div class="compare-title">ChatGPT Style Output</div>
+                        <ul class="compare-list">
+                            <li>General narrative descriptions</li>
+                            <li>High-level budgeting suggestions</li>
+                            <li>Limited temporal or cost structure</li>
+                            <li>No integrated risk quantification</li>
+                            <li>Manual extraction for reports</li>
+                        </ul>
+                    </div>
+                    <div class="compare-pane right">
+                        <div class="compare-title">BUDGIE Structured Output</div>
+                        <ul class="compare-list">
+                            <li>Parametric cost breakdown (phases, WBS)</li>
+                            <li>Embedded risk & variance indicators</li>
+                            <li>Multi-scenario budget differentials</li>
+                            <li>Cash flow + timeline alignment</li>
+                            <li>Export-ready financial artifacts</li>
+                        </ul>
+                    </div>
+                    <div class="compare-handle" id="compareHandle">
+                        <div class="compare-grip">⇆</div>
+                    </div>
+                </div>
+                <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="50" aria-label="Comparison slider">
+                <div class="compare-note">Drag the slider or the handle to reveal more of each side.</div>
+            </div>
+
+            <!-- Continue Architecture Layers -->
             <div class="layer">
                 <div class="layer-header"><span class="layer-title">Layer 4: Specialized AI Agents</span><span class="layer-badge">Intelligence Layer</span></div>
                 <div class="agent-grid">
@@ -550,44 +585,10 @@
                 </div>
             </div>
         </div>
+        
 
-        <!-- Process Flow (removed duplicate lower instance, single instance kept above) -->
-
-        <!-- Comparison: ChatGPT vs. BUDGIE -->
-        <div class="comparison-section" id="comparison">
-            <h2 class="comparison-header">ChatGPT vs. BUDGIE</h2>
-            <p class="comparison-subtitle">Slide to compare generic conversational output with domain-focused, structured mission planning intelligence.</p>
-            <div class="compare-wrapper" id="compareWrapper" style="--pos:50%">
-                <div class="compare-pane left">
-                    <div class="compare-title">ChatGPT Style Output</div>
-                    <ul class="compare-list">
-                        <li>General narrative descriptions</li>
-                        <li>High-level budgeting suggestions</li>
-                        <li>Limited temporal or cost structure</li>
-                        <li>No integrated risk quantification</li>
-                        <li>Manual extraction for reports</li>
-                    </ul>
-                </div>
-                <div class="compare-pane right">
-                    <div class="compare-title">BUDGIE Structured Output</div>
-                    <ul class="compare-list">
-                        <li>Parametric cost breakdown (phases, WBS)</li>
-                        <li>Embedded risk & variance indicators</li>
-                        <li>Multi-scenario budget differentials</li>
-                        <li>Cash flow + timeline alignment</li>
-                        <li>Export-ready financial artifacts</li>
-                    </ul>
-                </div>
-                <div class="compare-handle" id="compareHandle">
-                    <div class="compare-grip">⇆</div>
-                </div>
-            </div>
-            <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="50" aria-label="Comparison slider">
-            <div class="compare-note">Drag the slider or the handle to reveal more of each side.</div>
-        </div>
-
-        <!-- Key Performance Metrics -->
-        <div class="metrics-dashboard">
+    <!-- Key Performance Metrics -->
+    <div class="metrics-dashboard">
             <div class="metric-card"><div class="metric-value">±5%</div><div class="metric-label">Cost Estimation Accuracy</div></div>
             <div class="metric-card"><div class="metric-value">15%</div><div class="metric-label">Average Budget Savings</div></div>
             <div class="metric-card"><div class="metric-value">85%</div><div class="metric-label">Risk Prediction Accuracy</div></div>
