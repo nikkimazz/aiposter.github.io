@@ -278,27 +278,18 @@
         
         /* Important for Mission Planners section */
         .mission-planners {
-            background: linear-gradient(135deg, #fff9e6 0%, #ffffff 50%, #fff9e6 100%);
-            border: 2px solid #f4c542;
+            background: var(--white);
+            border: 2px solid var(--isu-accent);
             border-radius: 16px;
             padding: 28px 32px;
             margin: 28px 0;
-            box-shadow: 0 8px 24px rgba(244, 197, 66, 0.15);
+            box-shadow: var(--card-shadow);
         }
         .mission-planners h2 {
             color: var(--isu-blue);
             font-size: 1.4rem;
             margin-bottom: 20px;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-        .mission-planners h2::before {
-            content: '⚡';
-            font-size: 1.6rem;
-            display: inline-block;
         }
         .planners-grid {
             display: grid;
@@ -394,6 +385,37 @@
 
 
 
+        <!-- Space Mission Planning Essentials -->
+        <div class="mission-planners">
+            <h2>Space Mission Planning Essentials</h2>
+            <div class="planners-grid">
+                <div class="planner-item">
+                    <h3>Rapid Cost Estimation</h3>
+                    <p>Get preliminary cost estimates in seconds</p>
+                </div>
+                <div class="planner-item">
+                    <h3>Data-Light Approach</h3>
+                    <p>BUDGIE leverages transfer learning and industry benchmarks, so you don't need extensive historical mission data to get started.</p>
+                </div>
+                <div class="planner-item">
+                    <h3>Risk-Aware Budgeting</h3>
+                    <p>Integrated risk assessment and uncertainty quantification help you build realistic contingency buffers and avoid cost overruns.</p>
+                </div>
+                <div class="planner-item">
+                    <h3>Multi-Scenario Analysis</h3>
+                    <p>Quickly compare alternative mission architectures, technology choices, and budget allocations to find optimal solutions.</p>
+                </div>
+                <div class="planner-item">
+                    <h3>Designed for Agility</h3>
+                    <p>Perfect for startups and emerging companies that need professional-grade cost planning without dedicated financial teams.</p>
+                </div>
+                <div class="planner-item">
+                    <h3>Transparent AI Insights</h3>
+                    <p>Understand the reasoning behind cost predictions with explainable AI outputs and confidence intervals for every estimate.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- High-Level Purpose Flow -->
         <div class="flow-diagram">
             <h2 class="flow-title">High-Level Purpose: How B.U.D.G.I.E Works</h2>
@@ -448,37 +470,6 @@
                 <div class="flow-center">
                     <h3>Central Intelligence</h3>
                     <p>Coordinated AI agents<br/>continuously refine cost,<br/>risk & budget decisions.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Important for Mission Planners -->
-        <div class="mission-planners">
-            <h2>Space Mission Planning Essentials</h2>
-            <div class="planners-grid">
-                <div class="planner-item">
-                    <h3>Rapid Cost Estimation</h3>
-                    <p>Get preliminary cost estimates in seconds</p>
-                </div>
-                <div class="planner-item">
-                    <h3>Data-Light Approach</h3>
-                    <p>BUDGIE leverages transfer learning and industry benchmarks, so you don't need extensive historical mission data to get started.</p>
-                </div>
-                <div class="planner-item">
-                    <h3>Risk-Aware Budgeting</h3>
-                    <p>Integrated risk assessment and uncertainty quantification help you build realistic contingency buffers and avoid cost overruns.</p>
-                </div>
-                <div class="planner-item">
-                    <h3>Multi-Scenario Analysis</h3>
-                    <p>Quickly compare alternative mission architectures, technology choices, and budget allocations to find optimal solutions.</p>
-                </div>
-                <div class="planner-item">
-                    <h3>Designed for Agility</h3>
-                    <p>Perfect for startups and emerging companies that need professional-grade cost planning without dedicated financial teams.</p>
-                </div>
-                <div class="planner-item">
-                    <h3>Transparent AI Insights</h3>
-                    <p>Understand the reasoning behind cost predictions with explainable AI outputs and confidence intervals for every estimate.</p>
                 </div>
             </div>
         </div>
