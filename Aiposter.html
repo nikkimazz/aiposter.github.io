@@ -193,12 +193,16 @@
     .compare-note { text-align:center; font-size:0.75rem; color:#666; margin-top:10px; }
 
     /* Uniform metric bubbles for both sides */
-    .metrics-bubbles { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:6px; }
-    .metric-bubble { background:#ffffff; border:1px solid #e2e6ef; border-radius:999px; padding:8px 14px; box-shadow:0 2px 8px rgba(0,20,84,0.06); display:flex; align-items:baseline; gap:8px; }
-    .metric-label { font-size:0.78rem; color:#666; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; }
-    .metric-value { font-size:0.98rem; color: var(--isu-blue); font-weight:800; }
+    .metrics-bubbles { display:grid; grid-template-columns: repeat(2, minmax(220px, 1fr)); gap:12px; justify-items:stretch; align-items:stretch; margin-top:6px; }
+    .metric-bubble { background:#ffffff; border:1px solid #e2e6ef; border-radius:999px; padding:10px 14px; box-shadow:0 2px 8px rgba(0,20,84,0.06); display:flex; align-items:center; gap:10px; width:100%; min-height:42px; }
+    .metric-label { font-size:0.78rem; color:#666; font-weight:700; letter-spacing:0.02em; text-transform:uppercase; flex:1; }
+    .metric-value { font-size:0.98rem; color: var(--isu-blue); font-weight:800; text-align:right; }
     .compare-pane.left .metric-bubble { background:#fff; }
     .compare-pane.right .metric-bubble { background:#fff; }
+
+    @media (max-width: 640px) {
+        .metrics-bubbles { grid-template-columns: 1fr; }
+    }
 
         .agent-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
         .agent-card { background: var(--white); padding:14px; border-radius:12px; border:1px solid #ddd; box-shadow: 0 4px 12px rgba(0, 20, 84, 0.08); transition: all 0.3s ease; }
@@ -523,7 +527,7 @@
         <div class="comparison-section" id="comparison">
             <h2 class="comparison-header">ChatGPT vs. BUDGIE</h2>
             <p class="comparison-subtitle">Slide to compare ChatGPT conversational output with BUDGIE mission planning intelligence.</p>
-            <div class="compare-wrapper" id="compareWrapper" style="--pos:0%">
+            <div class="compare-wrapper" id="compareWrapper" style="--pos:100%">
                 <div class="compare-pane left">
                     <div class="compare-title">ChatGPT Style Output</div>
                     <div class="metrics-bubbles">
@@ -546,7 +550,7 @@
                     <div class="compare-grip">⇆</div>
                 </div>
             </div>
-            <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="0" aria-label="Comparison slider">
+            <input type="range" id="compareRange" class="compare-range" min="0" max="100" value="100" aria-label="Comparison slider">
             <div class="compare-note">Drag the slider or the handle to reveal more of each side.</div>
         </div>
 
